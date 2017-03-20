@@ -1,5 +1,3 @@
-import oracle.jrockit.jfr.JFR;
-
 import javax.swing.*;
 
 /**
@@ -14,5 +12,10 @@ public class MainWindow {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public int add(int a, int b) {
+        int sum = a + b;
+        return sum;
     }
 }

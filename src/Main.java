@@ -7,5 +7,7 @@ public class Main {
 
         MainWindow mainWindow = new MainWindow();
         mainWindow.init();
+        int sum = mainWindow.add(1, 2);
+        System.out.print(sum);
     }
 }
