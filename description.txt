@@ -1,0 +1,9 @@
+Standard shooter.
+
+Player has 1 ship.
+
+Gets money from each level.
+
+Gets to buy upgrades after each level.
+
+10 levels or something to win the game.
