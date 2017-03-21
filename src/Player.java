@@ -5,10 +5,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Player implements KeyListener{
-
+public class Player{
     private int x, y;
-    private SpriteSheet ss;
     private boolean up = false, dn = false, lt = false, rt = false;
     private final int SPEED = 3;
 
@@ -17,19 +15,27 @@ public class Player implements KeyListener{
         this.y = y;
     }
 
-    public void tick(){
-        if(up){
-            y -= SPEED;
-        }
-        if(dn){
-            y += SPEED;
-        }
-        if(lt){
-            x -= SPEED;
-        }
-        if(rt){
-            x += SPEED;
-        }
+    public static void drawPlayer(Graphics g) {
+        int[] x = new int[]{230,250,270};
+        int[] y = new int[]{670,645,670};
+        g.setColor(Color.cyan);
+        g.fillPolygon(x, y, x.length);
+    }
+
+    public void moveLeft () {
+        x -= SPEED;
+    }
+
+    public void moveRight () {
+        x += SPEED;
+    }
+
+    public void moveDown () {
+        y += SPEED;
+    }
+
+    public void moveUp () {
+        y -= SPEED;
     }
 
     /*
@@ -38,14 +44,4 @@ public class Player implements KeyListener{
         g.drawImage(ss.crop(0 ,0, 16, 16), x, y, 16 * Game.SCALE, 16 * Game.SCALE, null);
     }
     */
-
-    public void keyTyped(KeyEvent e) {}
-
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    public void keyReleased(KeyEvent e) {
-
-    }
 }
