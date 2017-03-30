@@ -5,7 +5,10 @@ import java.awt.*;
  * Created by martin on 3/20/17.
  */
 class MainPanel extends JPanel {
-    public MainPanel() {
+    Player player;
+
+    public MainPanel(Player player) {
+        this.player = player;
         setBackground(Color.black);
     }
 
@@ -17,7 +20,7 @@ class MainPanel extends JPanel {
         super.paintComponent(g);
 
         // Draw the player's ship, a rectangle
-        Player.drawPlayer(g);
+        player.drawPlayer(g);
 
         // Draw Text
         //g.drawString("This is my custom Panel!",10,20);

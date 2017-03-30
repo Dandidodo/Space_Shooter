@@ -12,14 +12,19 @@ public class MainWindow implements KeyListener{
     Player player;
 
     public void init() {
+        System.out.print("init!");
         this.frame = new JFrame("Space Shooter");
-        frame.setContentPane(new MainPanel());
+
+        this.player = new Player(200, 600);
+
+        frame.setContentPane(new MainPanel(player));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);
         //frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
 
+        // Put the game window in the middle of the screen
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int w = frame.getSize().width;
         int h = frame.getSize().height;
@@ -27,8 +32,6 @@ public class MainWindow implements KeyListener{
         int gamePosY = (dim.height - h)/2;
 
         frame.setLocation(gamePosX, gamePosY);
-
-        Player player = new Player(200, 600);
 
         frame.addKeyListener(this);
     }
@@ -47,12 +50,16 @@ public class MainWindow implements KeyListener{
         switch (key) {
             case KeyEvent.VK_LEFT:
                 player.moveLeft();
+                break;
             case KeyEvent.VK_RIGHT:
                 player.moveRight();
+                break;
             case KeyEvent.VK_DOWN:
                 player.moveDown();
+                break;
             case KeyEvent.VK_UP:
                 player.moveUp();
+                break;
         }
 
         frame.getContentPane().repaint();

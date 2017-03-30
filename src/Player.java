@@ -2,8 +2,6 @@
  * Created by martin on 3/20/17.
  */
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class Player{
     private int x, y;
@@ -15,15 +13,18 @@ public class Player{
         this.y = y;
     }
 
-    public static void drawPlayer(Graphics g) {
-        int[] x = new int[]{230,250,270};
-        int[] y = new int[]{670,645,670};
+    public void drawPlayer(Graphics g) {
+        //System.out.print("\nx_dp:" + x);
+        int[] x_cords = new int[]{x - 20, x, x + 20};
+        int[] y_cords = new int[]{y + 25, y, y + 25};
         g.setColor(Color.cyan);
-        g.fillPolygon(x, y, x.length);
+        g.fillPolygon(x_cords, y_cords, x_cords.length);
     }
 
     public void moveLeft () {
+        //System.out.print("\nx_ml_b:" + x);
         x -= SPEED;
+        //System.out.print("\nx_ml_a: " + x);
     }
 
     public void moveRight () {
